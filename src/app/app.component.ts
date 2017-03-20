@@ -1,3 +1,4 @@
+import { MarkerService } from './services/marker.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -10,35 +11,77 @@ export class AppComponent {
   lat: number = -22.255374;
   lng: number = -45.696035;
 
-  markers: marker[] = [
-    {
-      name: 'Company One',
-      lat: -22.262166,
-      lng: -45.702880,
-      draggable: true
-    },
-    {
-      name: 'Company Two',
-      lat: -22.256746,
-      lng: -45.694612,
-      draggable: true
-    },
-    {
-      name: 'Company Three',
-      lat: -22.253310,
-      lng:  -45.700481,
+  markerName: string;
+  markerLat: string;
+  markerLng: string;
+  markerDraggle: string;
+
+  markers: marker[];
+
+  constructor(private markersService: MarkerService) {
+    this.markers = this.markersService.getMarkers();
+  }
+
+  clickedMarker(marker: marker, index: number) {
+    console.log('Clickes Marker: '+marker.name + ' at index: ' + index);
+    
+  }
+
+  mapClicked($event: any) {
+    let name = prompt("Informe o nome do ponto");
+    let newMarker = {
+      name: name,
+      lat: $event.coords.lat,
+      lng: $event.coords.lng,
       draggable: true
     }
-  ];
 
-  constructor() {
+    this.markers.push(newMarker);
+    console.log(newMarker.name);
+    console.log('Latitude: '+$event.coords.lat);
+    console.log('Longitude: '+$event.coords.lng);
+    
+    
+  }
 
+  markerDragEnd(marker: any, $event:any) {
+ 
+    let updMarker = {
+      name: marker.name,
+      lat: parseFloat(marker.lat),
+      lng: parseFloat(marker.lng),
+      draggable: false
+    }
+
+    let newLat = $event.coords.lat;
+    let newLng = $event.coords.Lng;  
+  }
+
+  addMarker() {
+    console.log('Add new marker');
+    console.log(this.markerDraggle);
+    
+    if(this.markerDraggle == 'yes') {
+      var isDraggable = true;
+    } else {
+      var isDraggable = false;
+    }
+
+    var newMarker = {
+      name: this.markerName,
+      lat: parseFloat(this.markerLat),
+      lng: parseFloat(this.markerLng),
+      draggable: isDraggable
+    }    
+
+    this.markers.push(newMarker);
+    this.markersService.addMarker(newMarker);
   }
 }
 
 
 interface marker {
-  name:string;
+  name?:string;
   lat: number;
   lng: number;
   draggable: boolean;

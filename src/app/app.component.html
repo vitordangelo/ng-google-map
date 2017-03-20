@@ -21,32 +21,56 @@
     <div class="row">
       <div class="col-md-12">
         <div class="map">
-          <sebm-google-map 
-            [latitude]="lat" 
-            [longitude]="lng" 
-            [disableDefaultUI]=false
-            [zoom]=14
-            (mapClick)="mapClicked($event)">
+          <sebm-google-map [latitude]="lat" [longitude]="lng" [disableDefaultUI]=false [zoom]=14 (mapClick)="mapClicked($event)" [mapTypeControl]=true>
 
-            <sebm-google-map-marker *ngFor="let m of markers; let i = index" 
-              (markerClick)="clickedMarker(m, i)" 
-              [latitude]="m.lat" 
-              [longitude]="m.lng" 
-              [markerDraggable]="m.draggable"
-              (dragEnd)="markerDragEnd(m, $event)">
-                <sebm-google-map-info-window>
-                  <strong>{{m.name}}</strong>
-                </sebm-google-map-info-window>
+            <sebm-google-map-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m, i)" [latitude]="m.lat" [longitude]="m.lng"
+              [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
+              <sebm-google-map-info-window>
+                <div class="text-center">
+                  <strong>{{m.name}}</strong> <br/>
+                  {{m.lat}} , {{m.lng}}
+                </div>
+              </sebm-google-map-info-window>
             </sebm-google-map-marker>
           </sebm-google-map>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Add new marker</h3>
+        </div>
+        <div class="panel-body">
+          <form (submit)="addMarker()">
+            <div class="form-group">
+              <label for="markerName">Location Name</label>
+              <input type="text" class="form-control" name="markerName" placeholder="Location Name" [(ngModel)]="markerName">
+            </div>
+            <div class="form-group">
+              <label for="markerLat">Latitude</label>
+              <input type="text" class="form-control" name="markerLat" placeholder="Location Name" [(ngModel)]="markerLat">
+            </div>
+            <div class="form-group">
+              <label for="markerLng">Longitude</label>
+              <input type="text" class="form-control" name="markerLng" placeholder="Location Name" [(ngModel)]="markerLng">
+            </div>
+            <div class="form-group">
+              <label for="markerDraggle">Draggable</label>
+              <select class="form-control" name="markerDraggle" [(ngModel)]="markerDraggle">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+              </select>
+            </div>
+            <input type="submit" class="btn btn-default" style="margin-top: 10px;" value="Map it!">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 </div>
-
-
-
-
-
-

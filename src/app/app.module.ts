@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import { MarkerService } from "./services/marker.service";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
       apiKey: 'AIzaSyAoUy1JMgfJI9w4VXo7rFYcB6_XWvJpY3M'
     })
   ],
-  providers: [],
+  providers: [MarkerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
