@@ -29,6 +29,8 @@
                 <div class="text-center">
                   <strong>{{m.name}}</strong> <br/>
                   {{m.lat}} , {{m.lng}}
+                  <br>
+                  <a (click)="removeMarker(m)" class="delete">Delete</a>
                 </div>
               </sebm-google-map-info-window>
             </sebm-google-map-marker>
