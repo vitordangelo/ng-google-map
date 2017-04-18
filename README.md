@@ -1,27 +1,18 @@
-# Mapit
+# Angular + Google Maps
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.1.
+## Funcionalidades:
+Adicione e remova marcas no mapa.
+Obtena as coordenadas de cada marca.
+Arraste e remova as marcas inseridas.
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Plugin:
+angular-google-maps
+https://github.com/SebastianM/angular-google-maps
 
-## Code scaffolding
+### Demo:
+https://mapit-883d4.firebaseapp.com/
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+### Aplicaço feita durante o curso: Learn To Build A Google Map App Using Angular 2
+https://www.udemy.com/learn-to-build-a-google-map-app-using-angular-2/
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+[![AGM - Angular Google Maps](https://github.com/SebastianM/angular-google-maps/raw/master/assets/images/angular-google-maps-logo.png)](https://angular-maps.com/)
