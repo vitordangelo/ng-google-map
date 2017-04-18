@@ -1,9 +1,9 @@
 # Angular + Google Maps
 
 ## Funcionalidades:
-*Adicione e remova marcas no mapa.
-*Obtena as coordenadas de cada marca.
-*Arraste e remova as marcas inseridas.
+* Adicione e remova marcas no mapa.
+* Obtena as coordenadas de cada marca.
+* Arraste e remova as marcas inseridas.
 
 ## Plugin:
 angular-google-maps
